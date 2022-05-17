@@ -2,6 +2,11 @@ package main
 
 import "fmt"
 
+/*** 
+go standard library
+https://pkg.go.dev/std
+***/
+
 type book string;
 
 func (b book) printTitle(){
@@ -20,6 +25,9 @@ func main(){
 	remainingDeck.printAll();
 
 	hand.saveToFile("handDeck.txt")
+
+	deckFromFile := newDeckFromFile("handDeck.txt")
+	fmt.Println("deck from file:", deckFromFile)
 	// fmt.Println(cards)
 }
 

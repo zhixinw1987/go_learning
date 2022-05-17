@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"strings"
 	"io/ioutil"
+	"os"
+	"strings"
 )
 
 /***
@@ -32,6 +33,20 @@ func newDeck () deck {
 		}
 	}
 	return cards
+}
+
+
+func newDeckFromFile(fileName string) deck {
+	//in go the exception is returned as err return type
+	bs, err := ioutil.ReadFile(fileName);
+	//nil is equivalent to null, means nothing
+	if err != nil {
+		fmt.Println("error reading file", err);
+		//exit the program
+		os.Exit(1);
+	}
+	ss := strings.Split(string(bs),",");
+	return deck(ss)
 }
 
 /***
