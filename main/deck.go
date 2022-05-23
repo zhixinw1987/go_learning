@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"io/ioutil"
 	"os"
 	"strings"
+	"time"
 )
 
 /***
@@ -62,6 +64,17 @@ func (dk deck) tostring() string {
 
 func (dk deck) saveToFile(fileName string) {
 	ioutil.WriteFile(fileName, []byte(dk.tostring()), 0666);
+}
+
+func (dk deck) shuffle() {
+	/***
+	NewSource func to pass a seed based on timestamp for rand generator, by default go will always use some static value seed 
+	***/
+	randGen := rand.New(rand.NewSource(time.Now().UnixNano()));
+	for i := range dk {
+		newPos := randGen.Intn(len(dk));
+		dk[i], dk[newPos] = dk[newPos], dk[i]
+	}
 }
 
 /***
