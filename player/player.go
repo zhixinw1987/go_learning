@@ -32,11 +32,27 @@ func main (){
 		},
 	}
 	fmt.Println(p1.age)
-	fmt.Printf("%+v", p1)
+	p1.printPlayer()
 	//else all attribute must be assigned by sequence in which the attributes are declared
 	p2:=player{"yunqing", "wang", 65, contactInfo{"wangzx870320@gmail.com", "610081"}}
 	fmt.Println(p2)
 	//declare a player variable p3 with empty initiate value
 	var p3 player
 	fmt.Println(p3.age)
+	fmt.Println("++++++++++++++++++++++++++++++++++++++++++=")
+	pointerDemo(p1)
+}
+
+func pointerDemo(p player){
+	p.updateAge()
+	p.printPlayer()
+}
+
+//receiver func with struct
+func (p player) printPlayer (){
+	fmt.Printf("%+v", p)
+}
+
+func (p *player) updateAge () {
+	(*p).age = 40
 }
