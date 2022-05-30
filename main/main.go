@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"deck"
+	// "deck"
 )
 
 /*** 
@@ -18,29 +18,31 @@ func (b book) printTitle(){
 
 
 func main(){
-	cards := newDeck();
-	cards.printAll();
-	fmt.Println("++++++++++++++++++++++")
-	hand, remainingDeck := cards.deal(5);
-	fmt.Println("in hand: ")
-	hand.printAll();
-	fmt.Println("remaining: ")
-	remainingDeck.printAll();
+	// cards := newDeck();
+	// cards.printAll();
+	// fmt.Println("++++++++++++++++++++++")
+	// hand, remainingDeck := cards.deal(5);
+	// fmt.Println("in hand: ")
+	// hand.printAll();
+	// fmt.Println("remaining: ")
+	// remainingDeck.printAll();
 
-	hand.saveToFile("handDeck.txt")
+	// hand.saveToFile("handDeck.txt")
 
-	deckFromFile := newDeckFromFile("handDeck.txt")
-	fmt.Println("deck from file:", deckFromFile)
-	// fmt.Println(cards)
-	deckFromFile.shuffle()
-	fmt.Println("shuffled deck from file: ", deckFromFile)
+	// deckFromFile := newDeckFromFile("handDeck.txt")
+	// fmt.Println("deck from file:", deckFromFile)
+	// // fmt.Println(cards)
+	// deckFromFile.shuffle()
+	// fmt.Println("shuffled deck from file: ", deckFromFile)
+
+	showMapDemo()
 }
 
-func createDeck () deck{
-	return deck {"Ace of Diamonds",
-		"Joker of Hearts",
-		"Five of Spade"}
-}
+// func createDeck () deck{
+// 	return deck {"Ace of Diamonds",
+// 		"Joker of Hearts",
+// 		"Five of Spade"}
+// }
 
 func createCard() string{
 	return "Five of Diamonds"
