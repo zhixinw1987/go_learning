@@ -53,6 +53,8 @@ func (p player) printPlayer (){
 	fmt.Printf("%+v", p)
 }
 
+//receiver func with pointer as parameter
 func (p *player) updateAge () {
+	//* to retrieve the value the pointer is referring to
 	(*p).age = 40
 }
